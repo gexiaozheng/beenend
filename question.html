@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>好奇之一</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Lato',"Cursive"," Lucida","yahei";
+            font-size: 15px;
+        }
+        .container{
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h2{margin: 10px 0;}
+        .intro{
+            /*white-space: pre-line; */
+             text-indent: 31px;
+            line-height: 25px;
+            margin-bottom: 15px;
+        }
+
+        form{padding: 10px 0 10px 35px;}
+        ol li{  padding: 10px 0 0;}
+        ol li p{line-height: 25px;
+            margin-bottom: 5px;}
+        ol li label{    margin-right: 5px;}
+        ol li input{    margin-right: 5px;}
+
+        .checkbox-group     {margin: 5px;}
+        .checkbox-group input{margin-right: 5px;}
+        select{    margin-left: 5px;}
+        textarea{margin: 10px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            font-size: 14px;
+            padding: 5px;
+            height: 60px;}
+        footer{margin: 20px;}
+        footer p{    line-height: 25px;
+
+        }
+        .txt{
+            font-size: 13px;
+        }
+        .tip{
+            /*display: none;*/
+            text-align: center;
+        }
+        .tip h4{
+            margin: 5px 0;
+        }
+        .play-btn{
+            text-align: center;
+        }
+        .play-btn  button,.submit-btn{
+            height: 30px;
+            width: 100px;
+            font-family: "Cursive",'Source Sans Pro';
+            padding: 3px;
+            border: 0;
+            background: #A3D0C3;
+            margin: 5px auto;
+        }
+
+
+        .play-btn button:hover{
+            cursor: pointer;
+        }
+        .submit-btn{
+            border-radius: 4px;
+            width: 120px;
+            margin-left: 20px;
+        }
+        .submit-btn:focus{
+            outline:none;
+            opacity: 0.7;
+        }
+        .submit-btn:hover{
+            cursor: pointer;
+
+        }
+        /**/
+        .loading{
+            position:fixed;
+            top:0;
+            left:0;
+            height:100%;
+            width:100%;
+            background:rgba(0,0,0,.2);
+            z-index: 50;
+            display: none;
+        }
+        /*help*/
+        .help{
+            width: 80px;
+            height: 80px;
+            border: 1px #fff solid;
+            border-radius: 50%;
+            -webkit-animation: rotation 1s ease-in-out infinite;
+            -moz-animation: rotation 1s ease-in-out infinite;
+            animation: rotation 1s ease-in-out infinite;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+        }
+        .help:after{
+            width: 8px;
+            height: 8px;
+            background-color: rgba(255,255,255,1);
+            border-radius: 100%;
+            position: absolute;
+            content: "";
+            top: 28px;
+            left: 0;
+        }
+        @-webkit-keyframes rotation{
+            0%{-webkit-transform: rotate(0deg);}
+            100%{-webkit-transform: rotate(360deg);}
+        }
+        @-moz-keyframes rotation{
+            0%{-moz-transform: rotate(0deg);}
+            100%{-moz-transform: rotate(360deg);}
+        }
+        @keyframes rotation{
+            0%{transform: rotate(0deg);}
+            100%{transform: rotate(360deg);}
+        }
+        /*结果提示*/
+        .loading .request{
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            color: rgba(255,255,255,.8);
+            transform: translateX(-50%);
+            color: #333333;
+            display: none;
+        }
+        .loading .request p{
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .loading .request a{
+            color: #020c2d;
+        }
+    </style>
+</head>
+<body>
+<div class="loading">
+    <div class="help"></div>
+    <div class="request">
+        <p></p>
+        <a href="center.html">返回目录页面</a>
+    </div>
+</div>
+    <div class="container">
+        <header>
+            <h2>好奇之一</h2>
+            <p class="intro">
+                   跟朋友聊天时，对一些问题产生了好奇。希望能得到一些数据，仅仅是询问友人，跟我距离太远的人并没有兴趣。<br/>
+                   一个是大家对于书签的态度（特指浏览网页时保存的书签），以及日常休闲时，你如何玩手机。
+            </p>
+        </header>
+        <div class="tip">
+            <h4>书签生产大户(二毛)与王瓢的对比</h4>
+            <div class="svg-animation">
+                <svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <title>background</title>
+                        <rect fill="#ddd" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+
+                    </g>
+                    <g class="" id="ermao" >
+                        <title>ermao</title>
+                        <path id="svg_12" d="m299.5,229l-2.5,-73c0.5,0 -4.5,-29 26.5,-27c31,2 18,24 24,25c6,1 2,73 1.5,73" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#fff"></path>
+                        <ellipse stroke="null" ry="5" rx="4.5"  cy="162" cx="309" stroke-width="1.5" fill="#000000"></ellipse>
+                        <ellipse stroke="null" ry="5" rx="4.5"  cy="162" cx="309" stroke-width="1.5" fill="#000000"></ellipse>
+                        <ellipse stroke="null" ry="5" rx="4.5"  cy="162" cx="309" stroke-width="1.5" fill="#000000"></ellipse>
+                        <ellipse stroke="null" ry="5" rx="4.5"  cy="161" cx="333" stroke-width="1.5" fill="#000000"></ellipse>
+                        <ellipse ry="2" rx="4" id="svg_36" cy="188.5" cx="322" stroke-width="1.5" stroke="#000000" fill="none"></ellipse>
+                        <path fill="pink" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" id="svg_9" d="m328.18623,85.28784c0,0.88081 -0.3863,0.27001 -0.84198,-0.88081c-0.32222,-0.81378 0,-1.76163 0,-2.64244c0,-0.88081 -0.64443,-1.89572 0,-3.52324c0.45568,-1.15082 1.42585,-1.28493 2.52595,-1.76162c0.77789,-0.33708 1.68398,0 2.52596,0c0.84199,0 1.0886,0.258 1.68398,0.88081c0.59537,0.62282 0.84198,0.88081 0.84198,1.76162c0,0.88081 0.25813,3.99994 -0.84198,3.52324c-0.77789,-0.33707 0.58386,-1.28492 1.68397,-1.76162c0.77789,-0.33708 1.68397,0 2.52596,0c0.84198,0 1.36175,0.94785 1.68397,1.76162c0.45568,1.15083 1.68397,1.76163 1.68397,2.64244c0,0.88081 0.84199,1.76162 0.84199,2.64243c0,0.88081 -0.84199,1.76162 -1.68397,1.76162c-0.84199,0 -1.68398,0 -3.36795,0c-0.84198,0 -2.07027,0.27001 -2.52596,-0.88081c-0.32222,-0.81377 0.24661,-0.62281 0.84199,0c0.59537,0.62282 1.22829,1.49161 1.68397,2.64243c0.64443,1.62752 0,2.64244 0,4.40406c0,1.76162 -0.90608,1.42454 -1.68397,1.76162c-1.10011,0.47669 -2.52596,0.88081 -3.36795,0.88081c-0.84198,0 -0.51976,-0.94785 -0.84198,-1.76162c-0.45568,-1.15082 -0.84199,-1.76162 -0.84199,-2.64243c0,-0.88081 0,-1.76163 0,-2.64244c0,-0.88081 0,0 0,0.88081c0,0.88082 -0.84198,1.76163 -2.52596,1.76163c-0.84198,0 -2.77257,0.62281 -3.36794,0c-0.59538,-0.62282 -1.42585,-1.28493 -2.52596,-1.76163c-0.77789,-0.33707 -0.84199,-0.88081 -0.84199,-1.76162c0,-0.88081 0,-1.76162 0,-2.64243c0,-0.88081 -0.59537,-2.01962 0,-2.64243c0.59538,-0.62282 1.68398,0 2.52596,0l0.84199,0l0.84198,0" stroke="#000"></path>
+                        <path fill="#fff" stroke="#000" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" opacity="0.5" d="m320.5,129c-2,-34 10,-35 9.5,-35" id="svg_2"></path>
+                        <path fill="none" stroke="#000" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" id="svg_13" d="m331.5,86.5c0,0 0,-2 -1,-2c-1,0 0,2 0,3c0,2 1,2 1,1l0,-1l0,-2"></path>
+                        <polyline fill="none" stroke="#000" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" points="324.5,84.5 324.5,83.5 326.5,83.5 " id="svg_11" stroke-linecap="round"></polyline>
+                        <text style="font-size: 14px" x="310" y="250">二毛</text>
+                        <rect id="shadow" width="80" height="120" x="280" y="120" fill="url(#g1)" style="opacity: 0.6;transition: opacity 1s;display: none"></rect>
+                        <path id="smile" fill="transparent" d="M314 188 C314 195,330 195,330 188" stroke="#000" style="display: none;"></path>
+                        <path id="sad" fill="transparent" d="M314 188 C314 181,330 181,330 188" stroke="#000" style="display: none;"></path>
+                        <g class="txt">
+                            <text>
+                                <!--书签栏有6个目录，100个书签,仍在继续生产书签。-->
+                                <!--如果想象自己的书签全部丢失，心如死灰。。。-->
+                                <!--我已经将'书签消灭计划'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加入日程，争取每天消灭一个书签.-->
+                                <textPath id="txt1" xlink:href="#my_path1"  startOffset="0%" style="transition: opacity .2s linear;"></textPath>
+                                <textPath id="txt2" xlink:href="#my_path2"></textPath>
+                                <textPath id="txt3" xlink:href="#my_path3"></textPath>
+                                <textPath id="txt4" xlink:href="#my_path4" fill="blue"></textPath>
+
+                            </text>
+                            <path id="my_path1"  fill="transparent" d="m227,36.831764c21.10687,-14 83.465649,-24 104.625954,-11c21.160305,13 77.587786,13 102.274809,4c24.687022,-9 39.969465,-6 48.198473,-5c8.229007,1 49.374045,11 52.900763,15" opacity="0.5" fill-opacity="null" stroke-opacity="null" stroke-width="1.5"  />
+                            <path id="my_path2"  fill="transparent" d="m230,68.831764c27.10687,-21 82.465649,-26 103.625954,-13c21.160305,13 77.587786,13 102.274809,4c24.687022,-9 39.969465,-6 48.198473,-5c8.229007,1 49.374045,11 52.900763,15" opacity="0.5" fill-opacity="null" stroke-opacity="null" stroke-width="1.5"  />
+                            <path id="my_path3"  fill="transparent" d="m189,100.831764c40.375885,8 92.537508,-31 127.591564,-13c35.054056,18 95.531541,13 125.92794,4c30.396398,-9 49.213217,-6 59.34535,-5c10.132133,1 60.792798,11 65.135141,15" opacity="0.5" fill-opacity="null" stroke-opacity="null" stroke-width="1.5"  />
+                            <path id="my_path4"  fill="transparent"  d="m208.5,131c111,-22 131,1 144.5,-12c4.5,18 43.5,-18 40.5,0"  opacity="0.5" fill-opacity="null" stroke-opacity="null" stroke-width="1.5"  />
+
+                        </g>
+
+                    </g>
+                    <g id="wangpiao">
+                        <title>wangpiao</title>
+                        <path  d="m129.5,227l-2.5,-73c0.5,0 -4.5,-29 26.5,-27c31,2 22,15 24,25c2,10 2,73 1.5,73" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#fff"></path>
+                        <ellipse stroke="null" ry="5" rx="4.5"  cy="163" cx="143" stroke-width="1.5" fill="#000000"></ellipse>
+                        <ellipse stroke="null" ry="5" rx="4.5"  cy="162" cx="167" stroke-width="1.5" fill="#000000"></ellipse>
+                        <ellipse ry="1" rx="3" id="svg_35" cy="193.5" cx="153" stroke-width="1.5" stroke="#000000" fill="none"></ellipse>
+                        <path fill="#fff" stroke="#000" stroke-width="1.5" d="m155.64768,117.09615l-2.64286,0.92519c-0.24216,-0.81442 -0.60675,-1.52037 -1.04798,-2.08226l1.39761,-3.12223c0.12289,-0.27549 0.04716,-0.62674 -0.17232,-0.78343c-0.21722,-0.15554 -0.49429,-0.05854 -0.61673,0.21638l-1.32596,2.96268c-0.2739,-0.21982 -0.56231,-0.39545 -0.8616,-0.51425c-0.18865,-0.82476 -0.74915,-1.38377 -1.38673,-1.47044c-0.00046,-0.0023 -0.00091,-0.00459 -0.00136,-0.00689c-0.02767,-0.13889 -0.04218,-0.26401 -0.04445,-0.37306c-0.00226,-0.10847 0.00545,-0.20145 0.02086,-0.27491c0.01678,-0.07462 0.03583,-0.13488 0.05669,-0.18194c0.06621,-0.14923 0.15418,-0.2468 0.26165,-0.29214c0.01043,0.16128 0.0644,0.27664 0.15963,0.34494c0.07029,0.05051 0.15237,0.066 0.2476,0.04936c0.09568,-0.01779 0.1705,-0.08724 0.22492,-0.20834c0.04761,-0.10676 0.05759,-0.22327 0.02902,-0.34838c-0.02902,-0.1257 -0.09205,-0.22269 -0.18774,-0.29099c-0.06983,-0.04994 -0.14239,-0.07519 -0.21857,-0.07404c-0.07573,0.00057 -0.14829,0.01951 -0.21812,0.05567c-0.06939,0.03616 -0.13423,0.09183 -0.19454,0.16587c-0.05986,0.07404 -0.10929,0.15554 -0.14965,0.2445c-0.05986,0.1343 -0.09795,0.28467 -0.11337,0.44939c-0.01497,0.16415 -0.01678,0.32428 -0.00408,0.48211c0.00771,0.09183 0.02766,0.17276 0.04263,0.2577c-0.17006,-0.01205 -0.34374,0.00115 -0.51697,0.06199c-0.21857,0.07633 -0.41402,0.20662 -0.58045,0.37478c-0.02358,-0.09872 -0.04444,-0.19743 -0.08162,-0.2973c-0.0526,-0.14291 -0.11927,-0.27893 -0.19862,-0.41094c-0.08072,-0.13143 -0.17414,-0.23532 -0.28025,-0.31165c-0.06984,-0.04936 -0.14557,-0.08666 -0.22719,-0.11134c-0.08163,-0.02468 -0.15963,-0.02985 -0.234,-0.0155s-0.1442,0.04592 -0.20996,0.09413c-0.0662,0.04821 -0.1179,0.11765 -0.15781,0.20489c-0.05396,0.1211 -0.06802,0.24565 -0.04262,0.37134c0.0263,0.12684 0.08208,0.2204 0.16642,0.28123c0.09523,0.0683 0.18819,0.07921 0.27708,0.03214c0.08888,-0.04706 0.15282,-0.11421 0.19272,-0.20374c0.05397,-0.12053 0.05351,-0.25426 -0.00317,-0.39889c0.11065,-0.03157 0.22538,-0.00459 0.34328,0.08092c0.03673,0.02583 0.07754,0.06601 0.12244,0.11938c0.04399,0.05281 0.08752,0.12742 0.12969,0.22269c0.04263,0.09528 0.08117,0.21121 0.11382,0.34896c0.0059,0.02525 0.01043,0.05624 0.01588,0.08379c-0.41312,0.47523 -0.61537,1.19839 -0.49792,1.92672c-0.26392,0.33518 -0.48613,0.7289 -0.66071,1.16797l-2.33994,-1.67935c-0.21767,-0.15554 -0.49519,-0.05854 -0.61854,0.21637c-0.12289,0.27664 -0.04625,0.62789 0.17141,0.78458l2.46737,1.76888c-0.1501,0.76908 -0.1755,1.61105 -0.05306,2.46622l-2.64286,0.92577c-0.24215,0.08437 -0.38364,0.40118 -0.31652,0.70652c0.06666,0.30419 0.31607,0.48383 0.55823,0.39831l2.66598,-0.9338c0.2281,0.60666 0.61809,1.30859 1.07519,1.97608l-1.4484,3.23645c-0.12335,0.27606 -0.04716,0.62674 0.17141,0.78228c0.10838,0.07863 0.23218,0.09297 0.34374,0.05395c0.11246,-0.03903 0.21268,-0.13144 0.2739,-0.27033l1.31281,-2.93226c1.22439,1.4888 2.57756,2.36636 2.62018,0.60436c0.72466,1.46929 1.56495,-0.19399 2.04155,-2.28199l2.35944,1.6914c0.10883,0.07921 0.23308,0.09298 0.34555,0.05395c0.11155,-0.03845 0.21177,-0.13143 0.27344,-0.27032c0.12335,-0.27492 0.04716,-0.62617 -0.17096,-0.78171l-2.58526,-1.85325c0.13196,-0.86378 0.19136,-1.71206 0.14465,-2.37496l2.66916,-0.93381c0.24035,-0.08436 0.3841,-0.40003 0.31562,-0.70537c-0.06711,-0.30533 -0.31743,-0.4844 -0.55868,-0.40003z" id="svg_4"></path>
+                        <polyline fill="none" stroke="#000" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" points="146.5,300.5 146.5,300.5 " id="svg_10" stroke-linecap="round"></polyline>
+                        <text style="font-size: 14px" x="140" y="250">王瓢</text>
+                    </g>
+                    <g>
+                        <text x="190" y="200" id="txt5"></text>
+                    </g>
+                    <g>
+                        <defs>    <!--定义特效对象-->
+                            <!--定义渐变对象-->
+                            <linearGradient id="g1" x1="0" y1="0" x2="0" y2="100%">
+                                <stop offset="0" stop-color="rgba(0,0,0,0.5)"></stop>
+                                <stop offset="50%" stop-color="rgba(0,0,0,0.2)"></stop>
+                                <stop offset="100%" stop-color="rgba(0,0,0,0.1)"></stop>
+                            </linearGradient>
+                        </defs>
+
+                    </g>
+
+                    <g id="end" style="display: none;">
+                        <text style="font-size: 100px;font-weight: bold;" x="350" y="220" fill="red">KO</text>
+                    </g>
+                </svg>
+                <div class="play-btn">
+                    <button onclick="play()" id="play-btn">play</button>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <form action="" >
+       <ol>
+           <li>
+               <p class="question1">你是书签生产大户吗?</p>
+               <label> <input type="radio" name="bookmark" value="5"/>很符合</label>
+               <label><input type="radio" name="bookmark" value="4"/>符合</label>
+               <label> <input type="radio" name="bookmark" value="3"/>一般（不确定）</label>
+               <label><input type="radio" name="bookmark" value="2"/>不符合</label>
+               <label> <input type="radio" name="bookmark" value="1"/>非常不符合</label>
+           </li>
+           <li>
+               <p class="question1">你感觉每天花在手机上的时间多吗？(针对可支配的时间)</p>
+               <label><input type="radio" name="spendMore" value="3"/>多</label>
+               <label><input type="radio" name="spendMore" value="2"/>一般</label>
+               <label><input type="radio" name="spendMore" value="1"/>少</label>
+           </li>
+           <li>
+               <p>一般是多少小时呢？</p>
+               <select name="spendHours" id="">
+                   <option value="1" selected>1小时以下</option>
+                   <option value="2">1~2小时</option>
+                   <option value="3">2~3小时</option>
+                   <option value="4">3小时以上</option>
+               </select>
+          </li>
+                <li >你玩手机主要玩什么？（可不选）</li>
+                   <div class="checkbox-group"><input type="checkbox" value="1" name="activity" id="category1"/><label for="category1">玩手机游戏</label></div>
+                   <div class="checkbox-group"><input type="checkbox" value="2" name="activity" id="category2"/><label for="category2">刷微博，朋友圈</label></div>
+                   <div class="checkbox-group"><input type="checkbox" value="3" name="activity" id="category3" /><label for="category3">看新闻</label></div>
+                   <div class="checkbox-group"><input type="checkbox" value="4" name="activity" id="category4"/><label for="category4">听音乐</label></div>
+                   <div class="checkbox-group"><input type="checkbox" value="5" name="activity" id="category5"/><label for="category5">看小说</label></div>
+                   <div class="checkbox-group"><input type="checkbox" value="6" name="activity" id="category6"/><label for="category6">与人聊天</label></div>
+           </li>
+           
+       </ol>
+        </form>
+        <hr/>
+        <footer style="padding-bottom: 40px;">
+            <p>thank you.</p>
+            <br/>
+            <button class="submit-btn" onclick="sendInfo()">提交</button>
+
+            <!--<p >请留下你的名字和留言（万一我发红包呢）-->
+            <!--</p>-->
+            <!--<textarea rols="12" cols="40 " id="input-category6" placeholder="字数不要太多"></textarea>-->
+        </footer>
+    </div>
+    <script>
+        //   基本Id对象
+        var wangpiao=document.getElementById("wangpiao");
+        var ermao=document.getElementById("ermao");
+        var mouth=document.getElementById("svg_36");
+        var shadow=document.getElementById("shadow");
+        var txt1=document.getElementById("txt1");
+        var txt2=document.getElementById("txt2");
+        var txt3=document.getElementById("txt3");
+        var txt4=document.getElementById("txt4");
+        var txt5=document.getElementById("txt5");
+        var txt_object=[txt1,txt2,txt3,txt4];
+        var words_string=["书签栏有6个目录，100个书签,仍在继续生产书签。","如果想象自己的书签全部丢失，心如死灰。。。"
+            ,"我已经将'书签消灭计划'    加入日程，争取每天消灭一个书签。","是不是很好的方法？"];
+        var words_arr=[];
+        for( var i=0;i<words_string.length;i++){
+            words_arr.push(words_string[i].split(""));
+        }
+        var play_btn=document.getElementById("play-btn");
+        //        step1();
+        function play(){
+//            play_btn.style.display="none";
+            play_btn.style.visibility="hidden";
+            initial();
+            step1();
+        }
+
+
+        function initial(){
+            //清空文字
+            for( var i=0;i<txt_object.length;i++){
+                txt_object[i].innerHTML="";
+            }
+            txt5.innerHTML="";
+            //ermao display
+            var str="translate(322 188) scale(1) translate(-322 -188) rotate(0, 322 188)  ";
+            ermao.setAttribute("transform",str);
+            ermao.style.display="block";
+            document.getElementById("end").style.display="none";
+            shadow.style.display="none";
+            document.getElementById("smile").style.display="none";
+            document.getElementById("sad").style.display="none";
+            mouth.style.display="block";
+        }
+        function step1(){
+            var str="";
+            var i=0;
+            var j=0;
+            var open=true;
+            var timer=setInterval(function(){
+                speak(mouth);
+                //word
+                if(j<=words_string.length-1){
+                    var word=words_arr[j];
+                    str=txt_object[j].innerHTML;
+                    if(word[i]==" "){
+                        txt_object[j].innerHTML=str+"&nbsp;";
+                    }else{
+                        txt_object[j].innerHTML=str+word[i];
+                    }
+                    i++;
+                    if(i==word.length) {
+                        j++;
+                        i=0;
+                    }
+                }
+                if(j==words_string.length){
+                    open=false;
+                    //回复初始值
+                    mouth.setAttribute("rx",3);
+                    mouth.setAttribute("ry",1);
+                }
+                if(open==false){
+                    mouth.style.display="none";
+                    //中心参考点(322,188) smile
+//                          smile();
+                    document.getElementById("smile").style.display="block";
+
+                    clearInterval(timer);
+                    timer=null;
+                    setTimeout("step2();",2000);
+
+                }
+            },120);
+        }
+        //王瓢say
+        function step2(){
+            document.getElementById("txt5").style.display="block";
+            var arr="我很少开电脑".split("");
+            var i=0;var str="";
+            var mouth2=document.getElementById("svg_35");
+            var timer2=setInterval(function(){
+                speak(mouth2);
+                if(i>=arr.length) {
+                    mouth2.setAttribute("rx",3);
+                    mouth2.setAttribute("ry",1);
+                    clearInterval(timer2);
+                    timer2=null;
+                    setTimeout("step3();",1000);
+                }else{
+                    str=txt5.innerHTML;
+                    txt5.innerHTML=str+arr[i];
+                    i++;
+                }
+            },120);
+        }
+        function step3(){
+            shadow.style.display="block";
+            document.getElementById("smile").style.display="none";
+            document.getElementById("sad").style.display="block";
+            setTimeout("step4();",500);
+
+        }
+        function step4(){
+            //飞出去:缩小，移动
+            //        ermao
+            var dx=0,dy=0;
+            var x=322,y=188;
+            var str="rotate(45, 322 188) translate(322 188) scale(0.5) translate(-322 -188)";
+            //        ermao.setAttribute("transform","rotate(45, 322 188) translate(322 188) scale(0.5) translate(-322 -188)");
+            ermao.setAttribute("transform",str);
+            var timer3=setInterval(function(){
+                if(Math.abs(dx)<x && Math.abs(dy)<y){
+                    dx+=10;dy+=-30;
+                    ermao.setAttribute("transform","rotate(45, 322 188) translate(322 188) scale(0.5) translate(-322 -188) translate("+dx+","+dy+")");
+                }else{
+                    ermao.style.display="none";
+                    clearInterval(timer3);
+                    timer3=null;
+                    document.getElementById("end").style.display="block";
+                    document.getElementById("txt5").style.display="none";
+                    play_btn.style.visibility="visible";
+                }
+            },50);
+
+        }
+        function speak(mouth){
+            var rx=parseFloat(mouth.getAttribute("rx"));
+            var ry=parseFloat(mouth.getAttribute("ry"));
+            rx+=1;
+            ry+=1;
+            if(rx >8){ rx=3; }
+            if(ry >6){ ry=1; }
+            mouth.setAttribute("rx",rx);
+            mouth.setAttribute("ry",ry);
+        }
+    </script>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script>
+//            var bookmark,spendMore,spendHour;
+            var activity="";
+         var index={"bookmark":0,"spendMore":0,"spendHours":0,"activity":"/"};
+        function sendInfo(){
+
+            if($('input[name="bookmark"]:checked').length!==0 && $('input[name="spendMore"]:checked').length!==0 && $('select option:selected').length!==0){
+                index.bookmark=parseInt($('input[name="bookmark"]:checked').val());
+                index.spendMore=parseInt($('input[name="spendMore"]:checked').val());
+                index.spendHours=parseInt($('select option:selected').val());
+            }
+            else{
+                alert("请答完必填问题。");
+                return;
+            }
+
+            $("input[name='activity']:checked").each(function(){
+                activity+=$(this).val()+'/';
+            });
+            if(activity!=="") index.activity=activity;
+            //将数据序列化再发送至php
+                $('.loading').fadeIn();
+                $(".container").css('opacity','0.2');
+            $.post("php/add-choose.php",index,function(data){
+                $('.help').css("display","none");
+                if(data.status==1){
+                    $('.request p').html("你已提交成功。"+data.responseInfo);
+                }else{
+                    $('.request p').html(data.responseInfo);
+                }
+                $('.request').fadeIn();
+            },"json");
+
+        }
+    </script>
+</body>
+</html>

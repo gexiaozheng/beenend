@@ -1,0 +1,120 @@
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.row-lg,.col-lg{
+    padding: 0px;
+}
+.col-sm,.row-sm-2{
+    padding: 0 40px;
+}
+.row-sm{
+    padding: 0 20px;
+}
+
+
+/*-----------------------------------blog-detail-------------------------------------------start----*/
+
+                /******页头*******/
+
+                .my-detail-breadcrumb {
+                    padding: 8px 15px;
+                    list-style: none;
+                    border-radius: 4px;
+                    margin-top: 5px;
+                    color:#777;
+                    font-size: 2rem;
+                }
+                .my-detail-breadcrumb > li {
+                    display: inline-block;
+                }
+                .my-detail-breadcrumb > li + li:before {
+                    padding: 0 5px;
+                    color:#9D9D9D;
+                    content: "\00BB";
+                }
+                .my-detail-breadcrumb > .active {
+                    color: #9D9D9D;
+                }
+                .my-detail-breadcrumb  a:hover{
+                    color: #046380;
+                }
+                /*ҳ���С*/
+                .my-container{
+                    width:70%;
+                    margin: 0 auto;
+                }
+                .my-container:before,.my-container:after{
+                    content: "";
+                    display: table;
+                }
+                .my-container:after{
+                    clear: both;
+                }
+
+                /*comment*/
+                .leave-comment{
+                    margin-bottom: 20px;
+                }
+                .detail-comment{
+                    padding-left: 30px;
+                    padding-top: 10px;
+                }
+                .detail-comment input,.detail-comment textarea{
+                    border: 1px solid #ccc;
+                }
+                .detail-comment input:focus,.detail-comment textarea:focus{
+                    box-shadow:none;
+
+                }
+
+                /*����*/
+                .article-body{
+                    padding:10px;
+                }
+                .article-body p{
+                    padding: 5px;
+                }
+                .article-body ol{
+                    padding-left: 20px;
+                }
+
+            /********评论展示区********/
+                .show-comment{
+                    margin-bottom: 10px;
+                }
+                .comments{
+                    padding: 10px 5px 5px 20px;
+                    border-bottom: 1px dotted #ddd;
+                    margin-bottom: 10px;
+                }
+
+           /**********页尾留白***********/
+            .footer{
+                margin: 40px 0;
+            }
+            .footer p{
+                /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+                font-weight: bold;
+            }
+
+            /*锚点*/
+                a.anchor{
+                    background: #ddd;
+                    border-radius: 5px;
+                    position: fixed;
+                    bottom: 10px;
+                    right: 160px;
+                    display: none;
+                    padding: 5px 6px;
+                    color: #333;
+                }

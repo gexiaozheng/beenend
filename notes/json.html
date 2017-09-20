@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="blog-detail.css"/>
+    <link rel="stylesheet" href="../css/markdown.css"/>
+    <title>json数据格式相关问题</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<!--版式二:70%左右-->
+<div class="my-container">
+    <!--<div class="container ">-->
+    <div class=" row  row-lg">
+        <!--面包屑-->
+        <div class="col-xs-8 col-lg">
+            <!--<span class="glyphicon  glyphicon-paperclip"></span>-->
+            <a name="title"></a>
+            <ol class="my-detail-breadcrumb">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../center.html">目录</a></li>
+                <li><a href="../notes-list.html">笔记</a></li>
+            </ol>
+        </div>
+
+
+    </div>
+
+    <div class="row row-sm-2">
+        <!--向内缩进可能不够，row-sm-2-->
+        <div class="col-lg-12 ">
+            <!--article-->
+            <div class="article-header">
+                <h2 class="article-title" data-blogid="1" >json数据格式相关问题总结 </h2>
+                <h4 class="lead text-left">标签:json</h4>
+                <p><span class="glyphicon glyphicon-time"></span> by 戈正有 2016年1月8日 22:55</p>
+            </div>
+            <hr/>
+            <!--article-body-->
+            <div>
+                <!--文章-->
+                <article class="markdown-body">
+                    <h3 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>概要</h3>
+                    <ol>
+                        <li>json的由来或者定义&ndash;参见官网</li>
+                        <li>json格式字符串，json对象/数组，Http&ndash;参见http协议</li>
+                        <li>与在Php，js中使用json字符串  总结出简单方法</li>
+                    </ol>
+                    <p>1.json的由来或者定义  </p>
+                    <p>&emsp;&emsp;JSON （JavaScript Object Notation）轻量级的数据交换格式，<br />
+                        JSON基于两个结构：名称/值对的集合；值的有序列表。 值可以是双引号中的字符串，或数字，或true或false或null，或对象或数组。 这些结构可以嵌套。<br />
+                        &emsp;&emsp;在与后端进行数据交互时，http协议只能传输图片，音视频等二进制文件，或者是字符数据。所以经常使用json字符串来传递数据。<br />
+                        关于json字符串的一个很好的解释</p>
+                    <blockquote>
+                        <p>「字符串」是大部分编程语言中存储文本数据的数据类型，在这些编程语言中你可以把 JSON （文本）存储在字符串内。  </p>
+                    </blockquote>
+                    <p align="right"> <a href="https://www.zhihu.com/question/34468150?q=%E5%AD%97%E7%AC%A6%E4%B8%B2">------来自知乎Milo Yip的回答</a>
+                    </p>
+
+                    <p>2.json对象/数组<br />
+                        &emsp;&emsp;在接收到json字符串后需要做一些转换来得到数据。<br />
+                        (1)将js对象，php数组转化为json字符串<br />
+                        &emsp;&emsp;使用函数：<code>js:JSON.stringify(jsObj);</code><br />
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>php:json_encode($phpArray);</code><br />
+                        &emsp;&emsp;&emsp;&emsp;&emsp;js对象转化为json字符串<br />
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>var jsObj={"x":40,"y":"abc"};</code><br />
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>var jsonTxt=JSON.stringify(jsObj);</code><br />
+                        &emsp;&emsp;js中单引号或者双引号没有区别（配套使用注意嵌套），也可写成<code>var jsObj={‘x’:40,’y’:’abc’};</code>，函数<code>JSON.stringify()</code>会将单引号转化为双引号。<br />
+                        &emsp;&emsp;&emsp;&emsp;&emsp;php数组转化为json字符串<br />
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>$phpArray=[];$phpArray['a']='hello';</code><br />
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>$jsonTxt=json_encode($phpArray);</code> <br />
+                        注意：在拼凑json字符串时注意要使用双引号来标示键值对。<br />
+                        例如，PHP中：<br />
+                        &emsp;&emsp;<code>$uname=’susan’;
+                            echo  '{"msg":"'.$uname.'"}';</code></p>
+                    <p>(2)将json字符串转化为js对象，php数组<br />
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>js:JSON.parse(jsonTxt);</code><br />
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>php:json_decode(jsonTxt);</code><br />
+                        IE7中的js解释器不支持<code>JSON.stringify(jsObj)，JSON.parse(jsonTxt);</code></p>
+                    <p>关于json中是否只能有一个对象或者数组：</p>
+                    <blockquote>
+                        <p>wiki：<br />
+                            Early versions of JSON (such as specified by RFC 4627) required that a valid JSON &ldquo;document&rdquo; must consist of only an object or an array type, which could contain other types within them. This restriction was removed starting with RFC 7158, so that a JSON document may consist entirely of any possible JSON typed value. <u><em>(Note that RFC 7159, dated March 2014, now obsoletes both 4627 and 7158.)</em></u></p>
+                    </blockquote>
+                    <p align="right"> <a href="https://en.wikipedia.org/wiki/JSON">------来自WIKI</a>
+                    </p>
+
+                    <p>rfc 7159：</p>
+                    <blockquote>
+                        <p>A JSON text is a serialized value.  Note that certain previous<br />
+                            specifications of JSON constrained a JSON text to be an object or an<br />
+                            array.  Implementations that generate only objects or arrays where a<br />
+                            JSON text is called for will be interoperable in the sense that all<br />
+                            implementations will accept these as conforming JSON texts.</p>
+                    </blockquote>
+                    <p align="right"> <a href="https://www.rfc-editor.org/rfc/rfc7159.txt">------来自RFC7159规范</a>
+                    </p></article>
+
+            </div>
+            <div class="links">
+                <h4>[参考链接]</h4>
+                <div class="links-detail">
+                    <p><a href="http://json.org/">http://json.org/</a></p>
+                    <p> <a href="https://tools.ietf.org/html/rfc7159">rfc7159</a></p>
+                </div>
+            </div>
+            <hr/>
+
+            <a href="#title" class="anchor">回到顶部</a>
+
+        </div>
+
+
+
+    </div>
+    <!--页尾留白-->
+    <div class="footer">
+        <p>
+            <span style="vertical-align: middle">©2017 gezhengyou</span>
+            <!--<svg style="vertical-align: middle" width="30" height="30" xmlns="http://www.w3.org/2000/svg">-->
+            <!--<g stroke="null" id="layer1">-->
+            <!--<path stroke="#ffb6ca" fill="none" stroke-width="1.45" stroke-opacity="0.935" stroke-miterlimit="4" d="m13.791287,15.194004c0.660887,0.253849 -0.000097,1.059933 -0.402129,1.15248c-1.08953,0.250798 -1.83541,-0.999342 -1.794745,-1.996309c0.072741,-1.783339 1.838901,-2.847981 3.403263,-2.613611c2.295764,0.343947 3.611563,2.869013 3.187358,5.145099c-0.565398,3.033663 -3.632926,4.738119 -6.404396,4.074742c-3.487613,-0.834791 -5.423955,-4.75566 -4.579973,-8.293888c1.022175,-4.285267 5.433082,-6.645705 9.40553,-5.535873c4.681393,1.307899 7.245495,6.645574 5.972587,11.442677c-1.469623,5.538444 -7.235097,8.559161 -12.406664,6.997004c-5.876262,-1.775022 -9.070713,-8.536768 -7.365202,-14.591466c1.913326,-6.792456 9.037961,-10.475291 15.407797,-8.458135c7.071725,2.239425 10.897769,10.428609 8.757817,17.740255c-0.713871,2.439106 -2.036819,4.664603 -3.798464,6.422156" id="svg_1"/>-->
+            <!--</g>-->
+            <!--</svg>-->
+            <svg style="vertical-align: middle" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <g stroke="null" id="layer1">
+                        <path stroke="#333" fill="none" stroke-width="1.5" stroke-opacity="0.935" stroke-miterlimit="4" d="m9.06971,10.248943c0.437308,0.1676 -0.000064,0.699803 -0.266088,0.760906c-0.720941,0.165585 -1.214488,-0.659799 -1.18758,-1.31803c0.048132,-1.17742 1.216798,-1.880332 2.251934,-1.725593c1.519104,0.227085 2.389766,1.894218 2.10907,3.396965c-0.374123,2.002925 -2.403902,3.128263 -4.237779,2.69028c-2.307748,-0.551157 -3.589023,-3.139845 -3.030561,-5.4759c0.676372,-2.829276 3.595062,-4.387715 6.223625,-3.654967c3.09767,0.863518 4.794333,4.387629 3.952052,7.554835c-0.972447,3.656665 -4.787453,5.651042 -8.209471,4.619655c-3.888314,-1.171928 -6.002077,-5.636258 -4.873543,-9.633771c1.266045,-4.484605 5.980405,-6.916135 10.195316,-5.584342c4.67935,1.478542 7.211037,6.885314 5.795034,11.712706c-0.472367,1.610379 -1.34776,3.079726 -2.513438,4.240121" id="svg_1"/>
+                    </g>
+                </g>
+            </svg>
+        </p>
+    </div>
+</div>
+<!--</div>-->
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script>
+    // toTop效果
+    $(function(){
+        $(window).scroll(function(){
+            if($(window).scrollTop()>100){
+                $("a.anchor").fadeIn();
+            }else{
+                $("a.anchor").hide();
+            }
+        });
+
+    });
+
+</script>
+</body>
+</html>

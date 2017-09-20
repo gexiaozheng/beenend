@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跳转</title>
+    <style>
+        body{
+            background:rgba(170,204,255,.3);
+
+        }
+        .loading,.shadow{
+            position:fixed;
+            top:0;
+            left:0;
+            height:100%;
+            width:100%;
+            background:rgba(0,0,0,.2);
+            z-index: 50;
+
+        }
+        .loading{display: none;}
+        .shadow{display: none;}
+        .prompt{
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            color: rgba(255,255,255,.8);
+            font-size: 2rem;
+            transform: translateX(-50%);
+        }
+        .password{
+            /*width: 400px;*/
+            /*height: 200px;*/
+            /*text-align: center;*/
+            /*background-color: rgba(0,0,0,0.4);*/
+            color: #222;
+            position: fixed;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%,-50%);
+            transition: background-color 150ms ease-in-out;
+            /*border: 1px solid #aaa;*/
+            padding: 30px;
+            min-width: 300px;
+        }
+        .password .top{
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .password .send{
+            color: #217ac0;
+            text-decoration: underline;
+        }
+        .password .send:hover{
+            cursor: pointer;
+            /*color: #000;*/
+        }
+        .bottom{
+            padding-left: 10px;
+        }
+        .bottom label{    line-height: 25px;}
+        /*help*/
+        .help{
+            width: 80px;
+            height: 80px;
+            border: 1px #fff solid;
+            border-radius: 50%;
+            -webkit-animation: rotation 1s ease-in-out infinite;
+            -moz-animation: rotation 1s ease-in-out infinite;
+            animation: rotation 1s ease-in-out infinite;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+        }
+        .help:after{
+            width: 8px;
+            height: 8px;
+            background-color: rgba(255,255,255,1);
+            border-radius: 100%;
+            position: absolute;
+            content: "";
+            top: 28px;
+            left: 0;
+        }
+        @-webkit-keyframes rotation{
+            0%{-webkit-transform: rotate(0deg);}
+            100%{-webkit-transform: rotate(360deg);}
+        }
+        @-moz-keyframes rotation{
+            0%{-moz-transform: rotate(0deg);}
+            100%{-moz-transform: rotate(360deg);}
+        }
+        @keyframes rotation{
+            0%{transform: rotate(0deg);}
+            100%{transform: rotate(360deg);}
+        }
+        #try-again:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="loading">
+    <div class="help"></div>
+</div>
+<div class="password">
+    <p class="top">做个单选题吧。</p>
+    <div class="bottom">
+        <p class="title">hello</p>
+        <div class="question" id="question">
+           <!--<label><input type="radio" name="key" value="1"><span class="ans1">医生</span></label><br/>-->
+            <!--<label ><input type="radio" name="key" value="2"><span class="ans2">南方姑娘</span></label><br/>-->
+            <!--<label ><input type="radio" name="key" value="3"><span class="ans3">贵妃醉酒</span></label><br/>-->
+            <!--<label ><input type="radio" name="key" value="4"><span class="ans4">天仙配</span></label>-->
+       <!-- -->
+        </div>
+        <p class="send" onclick="submit_answer()">提交</p>
+    </div>
+</div>
+<div class="shadow">
+    <div class="prompt">
+        <p>sorry.</p>
+        <p>你答错了。</p>
+        <p id="try-again">再试试。</p>
+    </div>
+</div>
+<script src="js/jquery-3.1.1.min.js"></script>
+
+<!--还需测试 try again部分的代码:apache:ok-->
+<script>
+     // 载入题目
+   $(function(){
+       load_question();
+   });
+    function load_question(){
+        $.getJSON("php/get-question.php",function(data){
+            $('.loading').fadeIn();
+            if(data.msg=="ok"){
+                $('.loading').hide();
+                load_contents(data.data[0]);
+            }else{
+                alert(data.data[0]);
+            }
+        });
+    }
+    function load_contents(obj){
+        if($("input[name='key']:checked").length!=0){
+           $("input[name='key']:checked").removeAttr('checked');
+        }
+         $(".title").html(obj.title);
+         $(".title").attr("title",obj.id);
+         var options=obj.options.split("/");
+        //生成问题对象数组
+        var question=[];
+        for(var j=0;j<options.length;j++){
+            var temp={};
+            temp.index=j;
+            temp.text=options[j];
+            question.push(temp);
+        }
+        question.sort(function(){ return 0.5 - Math.random() });
+        var str="";
+         for(var i=0;i<question.length;i++){
+             str+='<label><input type="radio" name="key" value="'+question[i].index+'"><span>'+question[i].text+'</span></label><br/>';
+         }
+         $("#question").html(str);
+     }
+    function submit_answer(){
+        if($("input[name='key']:checked").length==0){
+            alert("请选择一个选项");
+            return;
+        }else{
+            $('.loading').fadeIn();
+             $(".password").css('opacity','0.2');
+             //验证结果
+             var val=parseInt($("input[name='key']:checked").val());
+             var qid=parseInt($(".title").attr("title"));
+             $.get('php/get-answer.php',{"qid":qid},function(data){
+                console.log(data);
+                if(data.msg=="ok"){
+                    //
+                    var answer=parseInt(data.data[0].answer);
+                    if(val===answer){
+                        jump("essay-center.html");
+                    }
+                    else{
+                         $('.loading').hide();
+                        $(".shadow").fadeIn();
+                    }
+                }
+             });
+        }
+
+
+    }
+    document.getElementById("try-again").onclick=function(){
+        $(".shadow").hide();
+        $(".password").css('opacity','1');
+        load_question();
+    }
+    function jump(url){
+        location.href=url;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="default.css"/>
+  <!--<link rel="stylesheet" href="css/mk.css"/>-->
+<title>object</title>
+</head>
+<body>
+<div>
+    <a name="title"></a>
+    <a href="../notes-list.html" class="back">come back</a>
+</div>
+<article class="markdown-body">
+
+<h1 id="object">
+    <a name="user-content-object" href="#object" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>
+    object</h1>
+<div class="content">
+  <p><strong>Contents</strong>
+  <ul class="toc">
+    <li class="tocline1">
+      <a href="#c1"> 1.Create objects, query and assign, delete, test, enumerate property</a>
+      <ul class="toc">
+        <li class="tocline2">
+          <a href="#c1-1">1.1 create objects</a>
+        </li>
+        <li class="tocline2">
+          <a href="#c1-2">1.2 query and setting properties</a>
+        </li>
+        <li class="tocline2">
+          <a href="#c1-3">1.3 delete property</a>
+        </li>
+        <li class="tocline2">
+          <a href="#c1-4">1.4 test property</a>
+        </li>
+      </ul>
+    </li>
+    <li class="tocline1">
+      <a href="#c2">2.Property</a>
+      <ul class="toc">
+        <li class="tocline2">
+          <a href="#c2-1">2.1 difference between data property and accessor property</a>
+        </li>
+        <li class="tocline2">
+          <a href="#c2-2">2.2 property attributes</a>
+        </li>
+      </ul>
+    </li>
+    <li class="tocline1">
+      <a href="#c3">3.Object attributes</a>
+      <ul class="toc">
+        <li class="tocline2">
+          <a href="#c3-1">3.1 the prototype attribute</a>
+        </li>
+        <li class="tocline2">
+          <a href="#c3-2">3.2 the class attribute</a>
+        </li>
+        <li class="tocline2">
+          <a href="#c3-2">3.2 the class attribute</a>
+        </li>
+        <li class="tocline2">
+          <a href="#c3-3">3.3 the extensible attribute</a>
+        </li>
+      </ul>
+    </li>
+</ul>
+</div>
+    <!--回到顶部-->
+    <a href="#title" id="anchor" class="anchor">回到顶部</a>
+
+<h2 id="1create-objects-query-and-assign-delete-test-enumerate-property">
+    <a name="user-content-1create-objects-query-and-assign-delete-test-enumerate-property" href="#1create-objects-query-and-assign-delete-test-enumerate-property" class="headeranchor-link" aria-hidden="true">
+        <span class="headeranchor"></span></a>
+    <p id="c1">1.Create objects, query and assign, delete, test, enumerate property</p></h2>
+    <p>In this section, there are introduction about some basic operation of javascript object. </p>
+    <h3 id="11-create-objects">
+  <a name="user-content-11-create-objects" href="#11-create-objects" class="headeranchor-link" aria-hidden="true">
+      <span class="headeranchor"></span></a>
+    <p id="c1-1">1.1 Create objects</p></h3>
+<p>Object literals, Object.create(), constructor function </p>
+<div class="box">
+
+<div class="lf">
+
+<p>Object literals </p>
+
+<p>Object.create()</p>     
+
+</div>
+
+<div class="rt">
+
+<code>
+    var a={};
+    var b={x:1,"for":"-anc"} 
+</code><br>
+
+     property name includes spaces, hyphens, reserved words must use string literals.
+
+</div>
+
+</div>
+
+<table>
+
+<tr>
+
+<td>
+
+Object literals
+
+</td>
+
+<td>
+
+ <code>
+    var a={};
+    var b={x:1,"for":"-anc"} 
+</code><br>
+
+     Note: property name includes spaces, hyphens, reserved words must use string literals.
+
+</td>    
+
+</tr>
+
+<tr>
+
+<td>
+
+Object.create()
+
+</td>
+
+<td>
+
+ <code>
+    var a=Object.create(null);
+    var b=Object.create(p); 
+</code><br>
+
+The arguments: prototype of new object, [property descriptor]. The first arguments can be null or object. when you send null to the function, the 
+new object will not inherit nothing, even though basic methods like toString().    
+
+
+</td>    
+
+</tr>
+
+<tr>
+
+<td colspan="2">
+
+---user-defined: inherit()
+
+</td> 
+
+</tr>
+
+<tr>
+
+<td>
+
+create object with new
+
+</td>    
+
+<td>
+
+<code>
+    var a=new Object();
+</code><br>
+
+The prototype property of constructor function will be the prototype of the new object.
+
+</td>
+
+</tr>
+
+</table>
+
+<h3 id="12-query-and-setting-properties"><a name="user-content-12-query-and-setting-properties" href="#12-query-and-setting-properties" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><p id="c1-2">1.2 query and setting properties</p></h3>
+<h4><p>1.2.1 use . or []</p></h4>
+<p>Dot=&gt;identifier, you can change the identifier dynamic</p>
+<p>[]=&gt;the content in square bracket will parse to string. You can manipulate and create string when a program is running.</p>
+<h4><p>1.1.2 inheritance: query and assign</p></h4>
+<p>There is a important feature of objects which will influence the process of query property that is inheritance. When you query property x in the object a, first find own property of a, if not find, then query x in object prototype until an object with a null prototype. </p>
+<p>What happen when you assign value to a object? First examine the prototype chain whether the assignment is allowed. For example, the property is inherited and is read-only. If assignment is allowed, it always creates or sets a property in the original object, and it never change the prototype chain. </p>
+<p>Note: there is one exception to the rule of property assignment. If  inherit a accessor property, it just call the method on ,not the prototype object that defines the property.</p>
+<h4><p>1.1.3 property access errors</p></h4>
+<p>error for query</p>
+<p>query property of an object that dose not exist.</p>
+<p>Error for set</p>
+<ol>
+<li>own read-only property(exception : definerProperty())</li>
+<li>inherited read-only property: It not allowed to hide a inherited read-only property with an own property of same name.</li>
+<li>if p doesn't exist, and there is no setter method, so p must be added to a. but the a extensible attribute is false. a does not have an own property p; a does not inherit a property p with a setter method, and a extensible attribute is false.</li>
+</ol>
+<h3 id="13-delete-property"><a name="user-content-13-delete-property" href="#13-delete-property" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><p id="c1-3">1.3 delete property</p></h3>
+<p><code>delete o.prop;</code></p>
+<p>The delete operator can operate only own property, and the delete always break off the relationship between object and property value,
+delete does not operate on the value of the property but on the property itself. <br />
+<div style="text-align: center;"></p>
+<p><img src="img/deleteprop.png" style="border: 1px solid;"></p>
+</div>
+
+ <p>In fact, variables that are not referenced in JS are automatically recycled. </p>
+<h3 id="14-test-property"><a name="user-content-14-test-property" href="#14-test-property" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><p id="c1-4">1.4 test property</p></h3>
+<pre><code>    prop in obj1;                    //true if obj1 has prop(own or inheritance)
+
+    obj1.hasOwnProperty(prop);       // true if obj1 has own property prop
+
+    obj1.propertyIsEnumerable(prop); //true if prop is own property and  Enurmerable attribute is true
+
+</code></pre>
+
+<p><b class="note"></b></p>
+<pre><code> o.y !== undefined; // false
+</code></pre>
+<p>y doesn't exist, or y exists but have been set to undefined. So use in operator to judge whether o has y. </p>
+<h3 id="15-enumerate-property"><a name="user-content-15-enumerate-property" href="#15-enumerate-property" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><p id="c1-5">1.5 enumerate property</p></h3>
+<p>for/in loop</p>
+<p>fliter some property: inheritance property and method</p>
+<pre><code>        for(p in o) {
+            if (!o.hasOwnProperty(p)) continue;   // Skip inherited properties
+        }
+        for(p in o) {
+            if (typeof o[p] === &quot;function&quot;) continue; // Skip methods
+        }
+
+</code></pre>
+
+<hr>
+
+<h2 id="2property"><a name="user-content-2property" href="#2property" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><p id="c2">2.Property</p></h2>
+<h3 id="21-difference-between-data-property-and-accessor-property"><a name="user-content-21-difference-between-data-property-and-accessor-property" href="#21-difference-between-data-property-and-accessor-property" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><p id="c2-1">2.1 Difference between data property and accessor property</h3>
+</p>
+
+<p>we know an object property is a name, a value, and a set of attributes. The value  is a method of accessor property, and is s simple value of data property. They look like same on the surface, both using the dot to accesse property value. There are some difference when you operate accessor property. </p>
+<pre><code>        var o = {
+            // An ordinary data property
+            data_prop: value,
+            // An accessor property defined as a pair of functions
+            get accessor_prop() { /* function body here */ },
+            set accessor_prop(value) { /* function body here */ }
+        };
+        o.accessor_prop;
+        o.accessor_prop=val;
+
+</code></pre>
+
+<p>JS invoke the getter and setterfunction as method of the object which they are defined. The return value of getter become the value of property access expression. When you set the value of an accessor property, JS invole the setter method and pass the right-hand side value. The return value of setter method is ignored. </p>
+<p ><b class="note"></b></p>
+<ol >
+<li>accessor property name is same as the function name, the keyword function is replaced with get/set.</li>
+<li>there is no colon between get/set and function name, but comma still required after function body. &mdash;maybe in this way JS distinguish the object method who name &ldquo;get&rdquo;or &ldquo;set&rdquo;. </li>
+</ol>
+<p>Chapter 6.6 has some examples, Cartesian coordinates and polar coordinates,checking of property writes and returning different values on each property read . </p>
+<h3 id="22-property-attributes"><a name="user-content-22-property-attributes" href="#22-property-attributes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><p id="c2-2">2.2 Property attributes </p></h3>
+<table>
+
+<tr>
+
+<td>data property</td>
+
+<td>value writable enumerable configurable</td>
+
+</tr>
+
+<tr>
+
+<td>accessor property</td>
+
+<td>get set enumerable configurable</td>
+
+</tr>
+
+</table>
+
+<p>property descriptor:  querying and setting property attribute</p>
+<pre><code>    Object.getOwnPropertyDescriptor(obj,propname); // querying
+    //  one property
+    Object.defineProperty(obj,prop,{attr1name:val1,attr1name:val2});
+    //  more than one property
+    Object.defineProperties(obj,{
+        prop1:{attr1name:val1,attr1name:val2},
+        prop2:{attr1name:val1,attr1name:val2}
+        });
+
+</code></pre>
+
+<p>Object.defineProperty() can create new property.</p>
+<p>Calls to Object.defineProperty() or Object.defineProperties() throw typeError.</p>
+<ol>
+<li>you add a new proprty to obj, if the obj is not extensible.</li>
+<li>you change the configurable or enumerable attribute, if the property is not configurable. </li>
+<li>you change the getter or setter method, or change the accessor property to data property, if the accessor property is not configurable. </li>
+<li>
+<p>like 3, you change a data property to accessor property, if the data property is not configurable. </p>
+</li>
+<li>
+<p>if a property is not configurable, you cannot change its writable from false to true, but you can change it from true to false. </p>
+</li>
+<li>if a property is not congigurable and not writable, you cant change its value. you can change value of property that is configurable and not writable. </li>
+</ol>
+<h2 id="3-object-attributes"><a name="user-content-3-object-attributes" href="#3-object-attributes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><p id="c3">3. Object attributes</p></h2>
+<h3 id="31-the-prototype-attribute"><a name="user-content-31-the-prototype-attribute" href="#31-the-prototype-attribute" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><p id="c3-1">3.1 The prototype attribute </p></h3>
+<p>The prototype attribute specifies the object which it inherits properties.</p>
+<p>set:</p>
+<pre><code>// The prototype is specified when you create one object.
+ var a={}; // prototype is Object.prototype
+ var b=new Func(); // prototype is the Func.prototype
+</code></pre>
+<p>query:</p>
+<pre><code> Object.getPrototypeof(obj1); // ES5
+ obj1.constructor.prototype;  // ES3--not always reliable
+</code></pre>
+<h3 id="32-the-class-attribute"><a name="user-content-32-the-class-attribute" href="#32-the-class-attribute" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><p id="c3-2">3.2 The class attribute </p></h3>
+<p>We can judge the type of one object,such as object, array, Date&hellip;Most buit-in object has their class attribute that match the name of their constrcutor function, and host object also has class which depend on implementation. There is no way to specify your own class of  user-defined object that maybe return the Object as class. </p>
+<p>A useful function to specify the class:</p>
+<pre><code> function classof(o){
+    if(o===undefined) return "Undefined";
+    if(o===null) return "Null";
+    return Object.prototype.toString.call(o).slice(8,-1);
+ }
+</code></pre>
+<h3 id="33-the-extensible-attribute"><a name="user-content-33-the-extensible-attribute" href="#33-the-extensible-attribute" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><p id="c3-3">3.3 The extensible attribute </p></h3>
+<p>The property extensible specifies whether new properties can be added to the objec. ES5 define functions to query and set this attribute.</p>
+<pre><code>Object.isExtensible() 
+Object.preventExtesions() ---make the obj is nonextensible.
+</code></pre>
+<p>More strcit function:</p>
+<pre><code>Object.seal()---nonextensible and all properties is not configurable
+Object.freeze()--nonextensible and all properties is not configurable ans not writable.
+</code></pre>
+<p>Object.isSealed() and Object.isFrozen() can determine whether the object is sealed or frozen. There is no way to unseal or unfreeze it. </p>
+<p><b class="note"></b>If the object has accessor properties with setter methods,
+these are not affected and can still be invoked by assignment to the property.
+And these operations don&rsquo;t affect prototype chain. </p>
+<h2 id="4others-object-methods-serialize-objects"><a name="user-content-4others-object-methods-serialize-objects" href="#4others-object-methods-serialize-objects" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><p id="c4">4.Others: object methods, serialize objects</p></h2>
+<p>We also use Json format to serialize object. We can use the butin-in function JSON.springfy() and JSON.parse() to serialize and restore javascript object. Note not all javascript can be transfered to JSON. </p>
+<pre><code> NaN, infinity, -infinity are serialize null.
+ Date is serialize to ISO-formatted string. JSON.parse() will keep these in string.
+ Function, RegExp, and Error objects and the undefined value cannot be serialized or restored.
+</code></pre>
+<div style="padding-bottom: 50px;"></div></article>
+<!--页尾留白-->
+<div class="footer">
+    <p>
+        <span style="vertical-align: middle">©2017 gezhengyou</span>
+        <svg style="vertical-align: middle" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <g stroke="null" id="layer1">
+                    <path stroke="#333" fill="none" stroke-width="1.5" stroke-opacity="0.935" stroke-miterlimit="4" d="m9.06971,10.248943c0.437308,0.1676 -0.000064,0.699803 -0.266088,0.760906c-0.720941,0.165585 -1.214488,-0.659799 -1.18758,-1.31803c0.048132,-1.17742 1.216798,-1.880332 2.251934,-1.725593c1.519104,0.227085 2.389766,1.894218 2.10907,3.396965c-0.374123,2.002925 -2.403902,3.128263 -4.237779,2.69028c-2.307748,-0.551157 -3.589023,-3.139845 -3.030561,-5.4759c0.676372,-2.829276 3.595062,-4.387715 6.223625,-3.654967c3.09767,0.863518 4.794333,4.387629 3.952052,7.554835c-0.972447,3.656665 -4.787453,5.651042 -8.209471,4.619655c-3.888314,-1.171928 -6.002077,-5.636258 -4.873543,-9.633771c1.266045,-4.484605 5.980405,-6.916135 10.195316,-5.584342c4.67935,1.478542 7.211037,6.885314 5.795034,11.712706c-0.472367,1.610379 -1.34776,3.079726 -2.513438,4.240121" id="svg_1"/>
+                </g>
+            </g>
+        </svg>
+    </p>
+</div>
+<script>
+    // js
+    var anchor=document.getElementById("anchor");
+    var body=document.querySelector("body");
+    anchor.onclick = function(){
+        scrollTo(0,0);
+    }
+    body.onscroll=function(){
+        var distance=document.body.scrollTop;
+        if(distance>250){
+            anchor.style.display="block";
+        }else{
+            anchor.style.display="none";
+        }
+    }
+</script>
+</body></html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css"/>
+    <title>目录</title>
+    <style>
+	*{
+		padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+	}
+
+    </style>
+</head>
+<body >
+    <div class="container smaller">
+        <!--top-->
+        <div class=" row top row-lg" style="margin: 10px auto">
+			<div class="col-xs-8 col-lg">
+			 <div class="three">
+                <ul>
+                    <li class="bread">
+                        <p class="txt" onclick="jump('index.html')">首页</p>
+                        <p class="border"></p>
+                    </li>
+                </ul>
+             </div>
+			</div>
+
+            <div class="col-xs-offset-2 col-xs-2 col-lg top-right">
+                <div class="contact">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                    <span>contact</span>
+                </div>
+                <div class="email">
+                    <p>gezhengyou@163.com</p>
+                </div>
+            </div>
+        </div>
+        <!--body-->
+        <div class="row">
+            <div class="col-md-9">
+                <div class="center-page-main">
+                    <!-- no.1-->
+                    <div class="row block">
+                        <div class="col-xs-3 title">
+                            <h3>学习笔记</h3>
+                        </div>
+                        <div class="col-xs-9 catalog-content">
+                            <div class="paragraph">
+                                <!-- 简单介绍 -->
+                                <h4>书签消灭计划</h4>
+                                <h4>读书笔记
+                                </h4>
+                                <h4>知识点总结</h4>
+                                <h4><a href="notes-list.html">查看所有笔记 &#187;<!--  <span class="glyphicon glyphicon-menu-right"></span> --></a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- no.2-->
+                    <div class="row block">
+                        <div class="col-xs-3 title">
+                            <h3>杂记</h3>
+                        </div>
+                        <div class="col-xs-9 catalog-content">
+                            <div class="paragraph ">
+                                <!-- 简单介绍 -->
+                                <h4><a href="jump.html">一些关于朋友们的念叨。</a></h4>
+                                <p>从毕业分开后，每当他们出现在脑中，真的是不可提起。不知道这是不是我的心理作祟，譬如怀念安逸的校园生活，现在过得不好....这难以得出答案。我只知道我很想念他们，也很明白一切不会倒流。所以想要写下来吧，好久没有写什么，也希望哪天可以让他们看看。 </p>
+                                <!--<h4>一些所想</h4>-->
+                                <!--<p>有时候很多事情就都会让我想要记录下来，变成自己的人生指导</p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--no.3-->
+                    <div class="row block">
+                        <div class="col-xs-3 title">
+                            <h3>有意思</h3>
+                        </div>
+                        <div class="col-xs-9 catalog-content">
+                            <div class=" paragraph ">
+                                <!-- 简单介绍 -->
+                                <h4>涨知识。。。</h4>
+                                <p>
+                                    <a href="">一段我很感激的教育经历</a>
+                                    <a href="">cornell note</a>
+                                </p>
+                                <h4>好奇心</h4>
+                                <p>
+                                    <a href="question.html">关于书签和玩手机</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <!-- 自我介绍 -->
+                <div class="well">
+                    <div class="media">
+                        <!-- <div class="media-heading">关于我</div> -->
+                        <h4 class="media-heading" style="margin-bottom: 15px;">关于我</h4>
+                        <div class="portrait"><img src="img/hi.jpg" alt=""/></div>
+                        <div class="media-body my-intro-nav">
+                            <p class="text-center">
+                                <a href="#" onclick="show_intro()">
+                                    <span class="glyphicon glyphicon-tree-deciduous">简单介绍</span>
+                                </a>
+                                <!-- <a href="#"><span class="glyphicon glyphicon-tree-deciduous"></span></a> -->
+                                <!-- <a href="#"><span class="glyphicon glyphicon-tree-deciduous"></span></a> -->
+                            </p>
+                            <p class="introduction "> 前端知识繁多，将其整理成笔记，一是让自己掌握得更透彻，二是如能帮助有需之人，也算是为互联网上的知识共享做点贡献。
+                                至于个人杂记，则是记录一些经历和体会，有些事情忘掉还是蛮可惜的。
+                            </p>
+                            <p class="text-center">
+                                <b>文章:  </b><a href="#" class="total-article">6</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="row">
+                <div class="col-xs-12">
+                    <hr/>
+                    <p>
+                        <span style="vertical-align: middle">©2017 gezhengyou</span>
+                        <svg style="vertical-align: middle" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                            <g>
+                                <g stroke="null" id="layer1">
+                                    <path stroke="#ffadcc" fill="none" stroke-width="1.5" stroke-opacity="0.935" stroke-miterlimit="4" d="m9.06971,10.248943c0.437308,0.1676 -0.000064,0.699803 -0.266088,0.760906c-0.720941,0.165585 -1.214488,-0.659799 -1.18758,-1.31803c0.048132,-1.17742 1.216798,-1.880332 2.251934,-1.725593c1.519104,0.227085 2.389766,1.894218 2.10907,3.396965c-0.374123,2.002925 -2.403902,3.128263 -4.237779,2.69028c-2.307748,-0.551157 -3.589023,-3.139845 -3.030561,-5.4759c0.676372,-2.829276 3.595062,-4.387715 6.223625,-3.654967c3.09767,0.863518 4.794333,4.387629 3.952052,7.554835c-0.972447,3.656665 -4.787453,5.651042 -8.209471,4.619655c-3.888314,-1.171928 -6.002077,-5.636258 -4.873543,-9.633771c1.266045,-4.484605 5.980405,-6.916135 10.195316,-5.584342c4.67935,1.478542 7.211037,6.885314 5.795034,11.712706c-0.472367,1.610379 -1.34776,3.079726 -2.513438,4.240121" id="svg_1"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        jump=function(url){
+            location.href=url;
+        }
+    </script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+        function show_intro(){
+//            if($(".introduction").hasClass("fade-intro"))
+//            {
+//                $(this).removeClass("fade-intro").addClass("show-intro");
+//
+//            }else if($(".introduction").hasClass("show-intro")){
+//                $(this).removeClass("show-intro").addClass("fade-intro");
+//            }
+//            $(".introduction").toggleClass("fade-intro");
+            $(".introduction").toggleClass("show-intro");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+    /*common*/
+    *{
+        /*padding: 0;*/
+        /*margin: 0;*/
+        box-sizing: border-box;
+    }
+    ol,ul,dl,li{
+        /*list-style: none;*/
+    }
+
+    body {
+        max-width: 980px;
+        /*border: 1px solid #ddd;*/
+        outline: 1300px solid #fff;
+        margin: 16px auto;
+    }
+    /*a*/
+    .markdown-body a {
+        color: inherit;
+        background: transparent;
+    }
+    .markdown-body a[href]:hover {
+        background: #ffa;
+    }
+    .markdown-body a:active {
+        color: #C00;
+        background: transparent;
+    }
+    .markdown-body a:visited {
+        color: #609;
+        background: transparent;
+    }
+    .markdown-body a:link {
+        color: #00C;
+        background: transparent;
+    }
+    /*b,strong,p*/
+    .markdown-body b,
+    .markdown-body strong {
+        font-weight: bold;
+    }
+    .markdown-body p{
+        margin: 1em 0;
+    }
+    /*headline*/
+    h1 {
+        font: 200% sans-serif;
+    }
+    h2 {
+        font: 140% sans-serif;
+    }
+    h3 {
+        font: 120% sans-serif;
+    }
+    h1, h2, h3 {
+        color: #005A9C;
+        background: white;
+    }
+    h4 { font: bold 100% sans-serif }
+    h5 { font: italic 100% sans-serif }
+    h6 { font: small-caps 100% sans-serif }
+    h2,h3,h5,h6{margin-top:3em;}
+
+
+/*.markdown-body blockquote{font-size:13px;}*/
+/*.content a{color: #333;}*/
+/*.markdown-body h6{margin:40px 0  25px;}*/
+/*.markdown-body h6:before{*/
+    /*display: block;*/
+    /*content: "";*/
+    /*margin-top:50px;*/
+/*}*/
+
+    body .markdown-body
+    {
+        padding:0  2em;
+    }
+    .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        color: #333333;
+        overflow: hidden;
+        font-family: sans-serif,"Cursive","Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        word-wrap: break-word;
+    }
+
+
+/*detail*/
+
+    /*content*/
+    .markdown-body .content{
+        /*background: rgb(236, 240, 241);*/
+    }
+    .markdown-body .content ul,.markdown-body .content ul li{
+    list-style: none;
+    }
+    ul {margin-left: 0; padding-left: 1em}
+    ol {margin-left: 0; padding-left: 2em}
+    /*嵌套过多时取消缩进*/
+    /*.toc ul {padding-left: 0}*/
+    /*.toc ul ul ul {padding-left: 1em}*/
+    /*.toc ul ul ul ul {padding-left: 0}*/
+    li.tocline1 {font-weight:normal}
+    li.tocline2 {font-weight: normal}
+    li.tocline4 {font-style: italic}
+    .toc {
+        text-indent: 0;
+    }
+
+    /*代码块code,block quote*/
+    .markdown-body blockquote{font-size:13px;}
+    .markdown-body pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    .markdown-body pre,
+    .markdown-body blockquote {
+        border: 1px solid #999;
+        padding-right: 1em;
+        page-break-inside: avoid;
+    }
+    .markdown-body code,
+    .markdown-body samp {
+        font-family: "Consolas";
+        padding: 0;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(0,0,0,0.04);
+        border-radius: 3px;
+    }
+    .markdown-body code:before,
+    .markdown-body code:after {
+        letter-spacing: -0.2em;
+        content: "\00a0";
+    }
+    .markdown-body pre {
+        font-family: "Consolas";
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f7f7f7;
+        border-radius: 3px;
+    }
+    .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+    }
+
+    /*table*/
+    .markdown-body table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        display: block;
+        width: 100%;
+        overflow: auto;
+        word-break: normal;
+        word-break: keep-all;
+    }
+    .markdown-body table th {
+        font-weight: bold;
+    }
+
+    .markdown-body table th,
+    .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #ddd;
+    }
+
+    .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #ccc;
+    }
+
+    .markdown-body table tr:nth-child(2n) {
+        background-color: #f8f8f8;
+    }
+
+    /*hr*/
+    .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .markdown-body hr:before,
+    .markdown-body hr:after {
+        display: table;
+        content: " ";
+    }
+    /*img*/
+   .markdown-body img {
+        max-width: 100% !important;
+        border: 0;
+        box-sizing: border-box;
+        page-break-inside: avoid;
+    }
+    /*box*/
+        .box{
+        width: 100%;
+        position: relative;
+        border: 1px solid #333;
+        display: none;
+        }
+        .box .lf{
+        width: 150px;
+        position: absolute;
+        left: 5px;
+        top:10px;
+
+        }
+        .box .rt{
+        margin-left: 150px;
+        border-left: 1px solid;
+        padding-left: 10px;
+        padding-top: 10px;
+        }
+    /*note*/
+    .note{    font-size: 1.2em;}
+    .note:before{
+        content: "Note: ";
+        display: inline;
+    }
+    #anchor{
+        background: #ddd;
+        border-radius: 5px;
+        position: fixed;
+        bottom: 10px;
+        right: 120px;
+        display: none;
+        padding: 5px 6px;
+        color: #333;
+        text-decoration: none;
+    }
+    /*面包屑导航*/
+    /******页头*******/
+        a.back{
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+            font-size: 1.3em;
+            /* text-decoration: none; */
+            /* text-align: right; */
+            /* float: right; */
+            color: #000;
+        }
+
+         /**********页尾留白***********/
+            .footer{
+                margin: 40px 0;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+            .footer p{
+                /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+                font-weight: bold;
+            }
+    /* Media */
+    @media only screen and (min-width: 480px) {
+        .markdown-body {
+            font-size:15px;
+        }
+    }
+
+    @media only screen and (min-width: 768px) {
+        .markdown-body {
+            font-size:16px;
+        }
+    }
+
