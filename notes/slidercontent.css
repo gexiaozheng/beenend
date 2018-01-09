@@ -1,7 +1,7 @@
 body {
   font-family: "Roboto Condensed", Arial, sans-serif;
   /*font-family: "Cursive","幼圆","Comic Sans MS","黑体",sans-serif;*/
-  background: url("../img/subtle_dots.png");
+  background: url("img/subtle_dots.png");
   line-height: 1.5em;
   font-weight: 300;
   font-size: 16px;
@@ -201,7 +201,26 @@ div.col-sm-3 img.profile-avatar {
 .fixed-condition{
   top: 50px;
 }
+ /**********页尾留白***********/
+            .footer{
+                margin: 40px 0;
+            }
+            .footer p{
+                /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+                font-weight: bold;
+            }
 
+            /*锚点*/
+                a.anchor{
+                    background: #ddd;
+                    border-radius: 5px;
+                    position: fixed;
+                    bottom: 10px;
+                    right: 160px;
+                    display: none;
+                    padding: 5px 6px;
+                    color: #333;
+                }
 
 /* Responsive Conditional */
 @media (min-width: 1024px) {

@@ -214,8 +214,8 @@
             <blockquote>  <p>难产好几个月，暂时写完了。暂时是因为还有一些地方不太明白。</p>
                 <p>“写这个干嘛？”</p>
                 <p>大概是闲，其实是喜欢。</p></blockquote>
-            <div style="margin-top:100px;"></div>
         </div>
+        <div id="footer"></div>
     </div>
 </div>
 
@@ -247,8 +247,23 @@
     <p>或许由他自己来说“我这一生过得很好”，更令人宽慰。</p>
 </div>
 
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script>
+    // toTop效果
+    $(function(){
+         $("div#footer").load('../php/footer.php',function(){
+           $("#logo1").css("stroke","##3fa757");
+         });
+        $(window).scroll(function(){
+            if($(window).scrollTop()>100){
+                $("a.anchor").fadeIn();
+            }else{
+                $("a.anchor").hide();
+            }
+        });
 
-<script type="text/javascript">
-    // $("div#header").load('./php/header.php');
+    });
+
 </script>
-</body></html>
+</body>
+</html>

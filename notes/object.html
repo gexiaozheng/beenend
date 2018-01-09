@@ -367,8 +367,8 @@ And these operations don&rsquo;t affect prototype chain. </p>
         scrollTo(0,0);
     }
     body.onscroll=function(){
-        var distance=document.body.scrollTop;
-        if(distance>250){
+        var distance=document.documentElement.scrollTop;
+        if(distance>400){
             anchor.style.display="block";
         }else{
             anchor.style.display="none";
