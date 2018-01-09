@@ -315,8 +315,16 @@ ul,ol,li{
                         margin-right: 5px;
                         vertical-align: middle;
                     }
-/*-----------------------------------笔记页面:end-------------------------------------------end----*/
 
+/*-----------------------------------笔记页面:end-------------------------------------------end----*/
+            .footer{
+                margin: 40px 0;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+            .footer p{
+                /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+                font-weight: bold;
+            }
 
 
 

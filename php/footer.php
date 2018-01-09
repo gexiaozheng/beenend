@@ -1,10 +1,10 @@
 <?php
-    header("Content-type:text/html;charset=utf-8;");
+    header("Content-Type:text/html;charset=utf-8;");
     ?>
  <!--页尾留白-->
-  <div class="footer">
+
     <p>
-      <span style="vertical-align: middle">©2018 gezhengyou</span>
+      <span id="ft-word1" style="vertical-align: middle">©2018 gezhengyou</span>
       <svg style="vertical-align: middle" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
         <g>
           <g stroke="null" id="layer1">
@@ -13,4 +13,4 @@
         </g>
       </svg>
     </p>
-  </div>
+  
