@@ -4,7 +4,7 @@
  <!--页尾留白-->
   <div class="footer">
     <p>
-      <span style="vertical-align: middle">©2018 gezhengyou</span>
+      <span style="vertical-align: middle">©2019 gezhengyou</span>
       <svg style="vertical-align: middle" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
         <g>
           <g stroke="null" id="layer1">
