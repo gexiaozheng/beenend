@@ -260,8 +260,9 @@
             <img src="img/images-center/demo2.gif" height="400px"/>
         </div>
     </div><!--row-end-->
-    
+
 	<div id="footer" class="footer" style="z-index: 3;position: relative;top: 0;left: 0; "></div>
+
 </div><!--my-container-end-->
 
 <script src="js/jquery-3.1.1.min.js"></script>
@@ -284,6 +285,9 @@
     jump=function(url){
         location.href=url;
     }
+     $("div#footer").load('../php/footer.php',function(){
+           $("#ft-word1").css("color","#fff");
+     });
 </script>
 
 <!--pool-->
